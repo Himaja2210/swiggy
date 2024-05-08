@@ -41,7 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: docker pull image
-        run: docker pull himaj2210/swiggy-clone:latest
+        run: docker pull himaja2210/swiggy-clone:latest
       - name: Image scan
         run: trivy image himaja2210/swiggy-clone:latest > trivyimagedeploy.txt
       - name: Deploy to container
