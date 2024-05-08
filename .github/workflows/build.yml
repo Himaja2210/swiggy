@@ -41,9 +41,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: docker pull image
-        run: |
-          docker login -u ${{ secrets.Dockerhub_username }} -p ${{ secrets.Dockerhub_token }}
-          docker pull himaaj2210/swiggy-clone:latest
+        run: docker pull himaj2210/swiggy-clone:latest
       - name: Image scan
         run: trivy image himaja2210/swiggy-clone:latest > trivyimagedeploy.txt
       - name: Deploy to container
