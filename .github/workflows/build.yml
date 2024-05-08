@@ -36,3 +36,13 @@ jobs:
       #   timeout-minutes: 5
       #   env:
       #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: docker pull image
+        run: docker pull himaaj2210/swiggy-clone:latest
+      - name: Image scan
+        run: trivy image himaja2210/swiggy-clone:latest > trivyimagedeploy.txt
+      - name: Deploy to container
+        run: docker run -d --name swiggy-clone -p 3000:3000 himaja2210/swiggy-clone:latest
