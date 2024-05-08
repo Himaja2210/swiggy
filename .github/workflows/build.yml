@@ -42,7 +42,5 @@ jobs:
     steps:
       - name: docker pull image
         run: docker pull himaja2210/swiggy-clone:latest
-      - name: Image scan
-        run: trivy image himaja2210/swiggy-clone:latest > trivyimagedeploy.txt
       - name: Deploy to container
         run: docker run -d --name swiggy-clone -p 3000:3000 himaja2210/swiggy-clone:latest
